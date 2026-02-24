@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskForge - Email to Task Automator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>.card-hover:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(99,102,241,0.2)}</style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 min-h-screen text-white">
+  <header class="border-b border-white/10 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center">
+          <i class="fas fa-envelope-forward text-white"></i>
+        </div>
+        <span class="text-xl font-bold">TaskForge</span>
+      </div>
+      <button class="bg-orange-500 hover:bg-orange-400 px-4 py-2 rounded-xl font-medium">
+        <i class="fas fa-cog mr-2"></i>Settings
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-8">
+    <div class="grid grid-cols-4 gap-4 mb-8">
+      <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+        <p class="text-slate-400 text-sm">Emails Processed</p>
+        <p class="text-3xl font-bold">1,847</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+        <p class="text-slate-400 text-sm">Tasks Created</p>
+        <p class="text-3xl font-bold">423</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+        <p class="text-slate-400 text-sm">Rules Active</p>
+        <p class="text-3xl font-bold">12</p>
+      </div>
+      <div class="bg-white/5 border border-white/10 rounded-xl p-5">
+        <p class="text-slate-400 text-sm">Time Saved</p>
+        <p class="text-3xl font-bold">67h</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Incoming Emails -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-inbox text-indigo-400"></i> Incoming Emails
+        </h2>
+        <div class="space-y-3">
+          <div class="bg-white/5 rounded-xl p-4">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <p class="font-medium">URGENT: Invoice payment due</p>
+                <p class="text-slate-400 text-sm">From: billing@company.com</p>
+              </div>
+            </div>
+            <div class="flex gap-2 mt-3">
+              <button class="flex-1 bg-orange-500/20 text-orange-400 px-3 py-1 rounded text-xs"><i class="fas fa-plus mr-1"></i>Create Task</button>
+              <button class="flex-1 bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs"><i class="fas fa-check mr-1"></i>Done</button>
+            </div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <p class="font-medium">Meeting request: Project review</p>
+                <p class="text-slate-400 text-sm">From: sarah@team.com</p>
+              </div>
+            </div>
+            <div class="flex gap-2 mt-3">
+              <button class="flex-1 bg-orange-500/20 text-orange-400 px-3 py-1 rounded text-xs"><i class="fas fa-plus mr-1"></i>Create Task</button>
+              <button class="flex-1 bg-green-500/20 text-green-400 px-3 py-1 rounded text-xs"><i class="fas fa-check mr-1"></i>Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Rules -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-filter text-green-400"></i> Automation Rules
+        </h2>
+        <div class="space-y-3">
+          <div class="bg-white/5 rounded-xl p-4 border-l-4 border-green-500">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium">Invoice → Task</p>
+                <p class="text-slate-400 text-xs">Contains "invoice" → Create task</p>
+              </div>
+              <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Active</span>
+            </div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border-l-4 border-blue-500">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium">Meeting → Calendar</p>
+                <p class="text-slate-400 text-xs">Contains "meeting" → Add to calendar</p>
+              </div>
+              <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Active</span>
+            </div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border-l-4 border-purple-500">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium">Urgent → Priority</p>
+                <p class="text-slate-400 text-xs">Contains "URGENT" → High priority</p>
+              </div>
+              <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Active</span>
+            </div>
+          </div>
+        </div>
+        <button class="w-full mt-4 bg-indigo-500 hover:bg-indigo-400 py-3 rounded-xl font-medium">
+          <i class="fas fa-plus mr-2"></i>Add Rule
+        </button>
+      </div>
+
+      <!-- Created Tasks -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="fas fa-tasks text-yellow-400"></i> Recent Tasks
+        </h2>
+        <div class="space-y-3">
+          <div class="bg-white/5 rounded-xl p-3 flex items-center gap-3">
+            <input type="checkbox" class="w-5 h-5 rounded">
+            <div class="flex-1">
+              <p class="text-sm">Review and pay invoice #4521</p>
+              <p class="text-slate-500 text-xs">High Priority • Due Tomorrow</p>
+            </div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-3 flex items-center gap-3">
+            <input type="checkbox" class="w-5 h-5 rounded">
+            <div class="flex-1">
+              <p class="text-sm">Schedule project review meeting</p>
+              <p class="text-slate-500 text-xs">Medium Priority • Due Friday</p>
+            </div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-3 flex items-center gap-3">
+            <input type="checkbox" class="w-5 h-5 rounded">
+            <div class="flex-1">
+              <p class="text-sm">Follow up on proposal</p>
+              <p class="text-slate-500 text-xs">Low Priority • Due Next Week</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integrations -->
+    <div class="mt-8">
+      <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+        <i class="fas fa-plug text-blue-400"></i> Integrations
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3"><i class="fab fa-google text-xl"></i><span class="font-medium">Gmail</span></div>
+          <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Connected</span>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3"><i class="fab fa-trello text-xl"></i><span class="font-medium">Trello</span></div>
+          <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Connected</span>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3"><i class="fas fa-tasks text-xl"></i><span class="font-medium">Todoist</span></div>
+          <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Connected</span>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3"><i class="fab fa-slack text-xl"></i><span class="font-medium">Slack</span></div>
+          <span class="bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded">Connected</span>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3"><i class="fab fa-notion text-xl"></i><span class="font-medium">Notion</span></div>
+          <button class="text-indigo-400 text-xs">Connect</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-8 px-6 border-t border-white/10 mt-8">
+    <div class="max-w-7xl mx-auto text-center">
+      <p class="text-slate-500 text-sm"><i class="fas fa-envelope-forward mr-2"></i>TaskForge - Email to Task Automator • <i class="fas fa-heart text-red-400"></i> by Tigha66</p>
+    </div>
+  </footer>
+</body>
+</html>
