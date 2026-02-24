@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - T A S K</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}
+  </style>
+</head>
+<body class="bg-[#0a0a0f] min-h-screen text-white flex items-center justify-center">
+  <div class="w-full max-w-md p-8">
+    <div class="text-center mb-8">
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
+        <i class="fas fa-robot text-3xl"></i>
+      </div>
+      <h1 class="text-3xl font-bold text-white">T A S K</h1>
+      <p class="text-slate-400 mt-2">Sign in to continue</p>
+    </div>
+    <div class="glass rounded-2xl p-8">
+      <form id="loginForm" class="space-y-4">
+        <input type="email" id="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500">
+        <input type="password" id="password" placeholder="Password" class="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500">
+        <button type="submit" class="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl font-semibold">Sign In</button>
+      </form>
+    </div>
+    <div class="mt-8 grid grid-cols-2 gap-4">
+      <div class="glass rounded-xl p-4 text-center">
+        <p class="font-bold">Creator</p>
+        <p class="text-2xl font-bold text-indigo-400">$9/mo</p>
+        <button onclick="subscribe('creator')" class="w-full mt-3 py-2 bg-indigo-500/20 text-indigo-400 rounded-lg text-sm">Subscribe</button>
+      </div>
+      <div class="glass rounded-xl p-4 text-center border border-purple-500/50">
+        <p class="font-bold">Pro</p>
+        <p class="text-2xl font-bold text-purple-400">$29/mo</p>
+        <button onclick="subscribe('pro')" class="w-full mt-3 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      localStorage.setItem('isLoggedIn', 'true');
+      window.location.href = 'index.html';
+    });
+    function subscribe(plan) {
+      const price = plan === 'creator' ? '$9' : '$29';
+      alert('Stripe Checkout: ' + plan.toUpperCase() + ' - ' + price + '/month\n\nIn production, this redirects to Stripe!');
+    }
+  </script>
+</body>
+</html>
